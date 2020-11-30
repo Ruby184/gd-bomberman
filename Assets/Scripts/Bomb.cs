@@ -3,34 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using MapTileGridCreator.Core;
 
+[RequireComponent(typeof(Collider))]
 public class Bomb : MonoBehaviour
 {
   public float timer = 3f;
   public int radius = 5;
   public GameObject explosionPrefab;
-  public GameObject firePrefab;
+  public ParticleSystem firePrefab;
   private Grid3D grid;
-  private float remainingTime = 0f;
-  private bool exploded = false;
+  private Coroutine timerCoroutine;
+
   void Start()
   {
     grid = FindObjectOfType<Grid3D>();
-    remainingTime = timer;
+    timerCoroutine = StartCoroutine(StartTimer());
   }
 
-  void Update()
-  {
-    remainingTime -= Time.deltaTime;
+  IEnumerator StartTimer () {
+    float remaining = timer;
 
-    if (remainingTime <= 0 && !exploded)
-    {
-      Explode();
+    while (remaining > 0) {
+      remaining -= Time.deltaTime;
+      yield return null;
     }
+
+    Explode();
   }
+
   void OnTriggerEnter(Collider other)
   {
-    if (!exploded && other.CompareTag(firePrefab.tag))
+    if (other.CompareTag(firePrefab.tag))
     {
+      StopCoroutine(timerCoroutine);
       Explode();
     }
   }
@@ -45,8 +49,6 @@ public class Bomb : MonoBehaviour
 
   private void Explode()
   {
-    exploded = true;
-
     Vector3 position = transform.position;
 
     Instantiate(explosionPrefab, position, Quaternion.identity);

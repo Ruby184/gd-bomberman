@@ -10,6 +10,12 @@ public class PlantBomb : MonoBehaviour
 
   private Grid3D grid;
 
+  public void onPlantBomb(InputAction.CallbackContext ctx)
+  {
+    Debug.Log($"Performed: {ctx.performed}, started: {ctx.started}, canceled: {ctx.canceled}, duration: {ctx.duration}");
+    Debug.Log($"Starttime: {ctx.startTime}, time: {ctx.time}, control: {ctx.control}");
+	}
+  
   void Start()
   {
     grid = FindObjectOfType<Grid3D>();
@@ -20,7 +26,7 @@ public class PlantBomb : MonoBehaviour
     if (Mouse.current.leftButton.wasPressedThisFrame)
     {
       Vector3 position = grid.TransformPositionToGridPosition(transform.position);
-      Debug.Log($"Position: {transform.position}, {position}");
+      // Debug.Log($"Position: {transform.position}, {position}");
       position.y += grid.SizeCell / 2;
       Bomb bomb = Instantiate(bombPrefab, position, Quaternion.identity);
     }

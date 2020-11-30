@@ -2184,6 +2184,7 @@ GameObject:
   - component: {fileID: 6441310981016294143}
   - component: {fileID: 1973448946483035611}
   - component: {fileID: 7564808862038598677}
+  - component: {fileID: 1834307925028707781}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -2352,7 +2353,19 @@ MonoBehaviour:
     m_ActionId: 3719025d-0929-494a-873a-b4c79e358fdc
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7564808862038598677}
+        m_TargetAssemblyTypeName: PlantBomb, Assembly-CSharp
+        m_MethodName: onPlantBomb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8067a9bb-8526-44e2-ab37-9ede79bbb92f
     m_ActionName: Player/PlantBomb[/Keyboard/space,/Keyboard/enter]
   - m_PersistentCalls:
@@ -2377,6 +2390,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 8316443619807454539, guid: d33dabc589bfa7a058d4fabc2a2bed78, type: 3}
+--- !u!114 &1834307925028707781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046068474661803049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1dd55b444cb36cc94db7c1136241a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityRegistry: {fileID: 11400000, guid: eea13cd308a3d5d948859c73a0689ff2, type: 2}
+  abilityLevels:
+  - type: 0
+    level: 0
 --- !u!1 &3061455868343263308
 GameObject:
   m_ObjectHideFlags: 0

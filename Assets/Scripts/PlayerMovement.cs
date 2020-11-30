@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour {
 	public bool isGrounded;
 
 	[Header("Animation Smoothing")]
+
+	[Range(0, 1f)]
 	public float StartAnimTime = 0.3f;
 	[Range(0, 1f)]
 	public float StopAnimTime = 0.15f;
-
-	private float turnSmoothVelocity;
 
 	public void onMovement (InputAction.CallbackContext ctx) {
 		movement = ctx.ReadValue<Vector2>();
