@@ -15,6 +15,6 @@ public class PickableSpawner : MonoBehaviour
 
   void onDestroy()
   {
-    
+    Spawn(abilityRegistry.GetRandomAbility());
   }
 }

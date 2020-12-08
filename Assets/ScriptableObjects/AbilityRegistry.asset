@@ -15,3 +15,11 @@ MonoBehaviour:
   abilities:
   - ability: {fileID: 11400000, guid: 58e537755ab3aa6c3b791b7871ed9522, type: 2}
     probabilityMultiplier: 0
+  - ability: {fileID: 11400000, guid: 8de964a48a9ac6edba499c4727b26ae1, type: 2}
+    probabilityMultiplier: 0
+  - ability: {fileID: 11400000, guid: 58151716bc5812333b8cf061d84d6ac1, type: 2}
+    probabilityMultiplier: 0
+  - ability: {fileID: 11400000, guid: 089aafd50e8409ba58b5fdcd80e91f7d, type: 2}
+    probabilityMultiplier: 0
+  - ability: {fileID: 11400000, guid: 3985fc1a204569b66b9af31ad0509cd2, type: 2}
+    probabilityMultiplier: 0

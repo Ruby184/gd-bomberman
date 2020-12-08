@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 62864359797157835}
   - component: {fileID: 8221587166350674186}
-  - component: {fileID: 8316443619807454539}
   - component: {fileID: 2676373875917354037}
+  - component: {fileID: 8316443619807454539}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -47,22 +47,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &8316443619807454539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62864359797157834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0efdc614d17bcd6f3bd71ccf5c7fc345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 3
-  radius: 5
-  explosionPrefab: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
-  firePrefab: {fileID: 19800002, guid: ec8ca459c13886c48b2e9767acbe237b, type: 3}
 --- !u!54 &2676373875917354037
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,6 +63,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8316443619807454539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62864359797157834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efdc614d17bcd6f3bd71ccf5c7fc345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 3
+  radius: 5
+  explosionPrefab: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
+  firePrefab: {fileID: 19800002, guid: ec8ca459c13886c48b2e9767acbe237b, type: 3}
 --- !u!135 &1684495199469482763
 SphereCollider:
   m_ObjectHideFlags: 0

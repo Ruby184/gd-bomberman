@@ -54,15 +54,17 @@ public class Ability : ScriptableObject, PickableContract
   [Min(0)]
   public float initialValue = 0f;
 
-  [Tooltip("Maximum value for ability after all possible upgrades.")]
-  [Min(0)]
-  public float maximumValue = 1.0f;
+  [Tooltip("Amount for maximum value computation.")]
+  public float amountValue = 1.0f;
+
+  [Tooltip("Is amount value the maximum one or defines amount per level.")]
+  public bool isAmountFinalValue = false;
 
   // Maximum level after all possible upgrades applied
   public int maximumLevel => initialLevel + upgradesCount;
 
   // Amount of value increase per one level.
-  public float amountPerLevel => (maximumValue - initialValue) / upgradesCount;
+  public float amountPerLevel => isAmountFinalValue ? (amountValue - initialValue) / upgradesCount : amountValue;
 
   public float ValueAtLevel(int level)
   {

@@ -19,10 +19,12 @@ public class Bomb : MonoBehaviour
     timerCoroutine = StartCoroutine(StartTimer());
   }
 
-  IEnumerator StartTimer () {
+  private IEnumerator StartTimer()
+  {
     float remaining = timer;
 
-    while (remaining > 0) {
+    while (remaining > 0)
+    {
       remaining -= Time.deltaTime;
       yield return null;
     }

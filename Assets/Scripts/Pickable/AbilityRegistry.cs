@@ -30,9 +30,12 @@ public class AbilityRegistry : ScriptableObject
     {
       var item = abilities[i];
       
-      if (registry.ContainsKey(item.ability.type)) {
+      if (registry.ContainsKey(item.ability.type))
+      {
         Debug.LogWarning($"AbilityRegistry: Skipping duplicate ability settings for {item.ability.type} at index {i}.");
-      } else {
+      }
+      else
+      {
         registry.Add(item.ability.type, item);
       }
     }
@@ -41,11 +44,24 @@ public class AbilityRegistry : ScriptableObject
     {
       foreach (Ability.AbilityType type in Enum.GetValues(typeof(Ability.AbilityType)))
       {
-        if (!registry.ContainsKey(type)) {
+        if (!registry.ContainsKey(type))
+        {
           Debug.LogWarning($"AbilityRegistry: Missing ability for type {type}.");
         }
       }
     }
+  }
+
+  public List<AbilitySettings> GetAbilities()
+  {
+    return new List<AbilitySettings>(registry.Values);
+  }
+
+  public Ability GetRandomAbility()
+  {
+    List<AbilitySettings> abilities = GetAbilities();
+    int index = UnityEngine.Random.Range(0, abilities.Count);
+    return abilities[index].ability;
   }
 
   public Ability GetAbility(Ability.AbilityType type)

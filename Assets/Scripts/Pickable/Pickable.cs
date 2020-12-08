@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class Pickable : MonoBehaviour
 {
+  // This is assigned when gameobject prefab is instantiated by PickableSpawner
   [HideInInspector]
   public PickableContract pickable;
 
@@ -14,7 +15,7 @@ public class Pickable : MonoBehaviour
 
   void Start()
   {
-    // instantiate pickable prefab as child of this gameobject
+    // Instantiate pickable prefab as child of this gameobject
     Instantiate(pickable.GetPrefab(), transform);
   }
 
@@ -26,17 +27,30 @@ public class Pickable : MonoBehaviour
     }
   }
 
-  // try to apply pickable on player which is trying to collect pickable
+  // Try to apply pickable on player which is trying to collect pickable
   // if apply is successful, emit unity event and destroy gameobject
   private void TryPickup(GameObject player)
   {
     if (pickable.Apply(player))
     {
-      onPickup?.Invoke(player);
+      onPickup?.Invoke(new PickupEventArg(player, pickable));
       Destroy(gameObject);
     }
   }
 
+  public readonly struct PickupEventArg
+  {
+    public GameObject player { get; }
+
+    public PickableContract pickable { get; }
+
+    public PickupEventArg(GameObject player, PickableContract pickable)
+    {
+      this.player = player;
+      this.pickable = pickable;
+    }
+  }
+
   [Serializable]
-  public class PickupEvent : UnityEvent<GameObject> {};
+  public class PickupEvent : UnityEvent<PickupEventArg> {};
 }
