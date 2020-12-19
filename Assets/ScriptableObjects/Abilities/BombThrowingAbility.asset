@@ -15,8 +15,9 @@ MonoBehaviour:
   title: Bomb Throwing
   type: 3
   icon: {fileID: 21300000, guid: 0f8c5ead26c61f548b23167bd8f92253, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 1457447391626070116, guid: d089c50f611e330be8f22b75ca1ca001, type: 3}
   initialLevel: 0
   upgradesCount: 4
   initialValue: 0
-  maximumValue: 1
+  amountValue: 1
+  isAmountFinalValue: 0

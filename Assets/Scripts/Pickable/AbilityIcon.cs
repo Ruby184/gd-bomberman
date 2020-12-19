@@ -5,9 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class AbilityIcon : MonoBehaviour
-{
-  public Ability ability;
-  
+{ 
   public Image ringImage;
 
   public Image icon;
@@ -17,12 +15,17 @@ public class AbilityIcon : MonoBehaviour
   [Min(0)]
   public float animationDuration = 0.6f;
 
+  private Ability ability;
+
   private Coroutine animationCoroutine;
 
-  void Start()
+  public AbilityIcon Initialize(Ability ability)
   {
+    this.ability = ability;
     icon.sprite = ability.icon;
     SetLevel(ability.initialLevel);
+
+    return this;
   }
 
   public void SetLevel(int level)
@@ -34,7 +37,7 @@ public class AbilityIcon : MonoBehaviour
       StopCoroutine(animationCoroutine);
     }
 
-    animationCoroutine = StartCoroutine(AnimateFillAmount(Mathf.Clamp01(level / (float) ability.maximumLevel), 0.6f));
+    animationCoroutine = StartCoroutine(AnimateFillAmount(Mathf.Clamp01(level / (float) ability.maximumLevel), animationDuration));
   }
   
   private IEnumerator AnimateFillAmount(float value, float duration)

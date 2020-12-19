@@ -15,8 +15,9 @@ MonoBehaviour:
   title: Explosion Radius
   type: 1
   icon: {fileID: 21300000, guid: 588ac5b533407b74ab8b59d1f45e90db, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 2294095854464667362, guid: 8ffe2a24427cb5efca6a2e684810a149, type: 3}
   initialLevel: 1
   upgradesCount: 5
   initialValue: 1
-  maximumValue: 8
+  amountValue: 1
+  isAmountFinalValue: 0

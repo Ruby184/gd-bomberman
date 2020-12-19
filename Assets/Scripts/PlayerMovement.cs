@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController), typeof(Animator), typeof(PlayerInput))]
-public class PlayerMovement : MonoBehaviour {
+[RequireComponent(typeof(CharacterController), typeof(Animator))]
+[RequireComponent(typeof(PlayerInput), typeof(PlayerStats))]
+public class PlayerMovement : MonoBehaviour
+{
 	private CharacterController controller;
 	private Animator animator;
 	private Camera cam;
+	private PlayerStats playerStats;
 	private Vector2 movement;
 	private Vector3 velocity;
-	public float speed = 5f;
-	[Space]
-	public float rotationSpeed = 0.1f;
+
+	public float rotationSpeed = 0.001f;
 	public float allowPlayerRotation = 0.1f;
 	public bool isGrounded;
 
@@ -21,22 +23,29 @@ public class PlayerMovement : MonoBehaviour {
 	[Range(0, 1f)]
 	public float StopAnimTime = 0.15f;
 
-	public void onMovement (InputAction.CallbackContext ctx) {
+	public float movementSpeed => playerStats.GetAbilityValue(Ability.AbilityType.MovementSpeed);
+
+	public void onMovement(InputAction.CallbackContext ctx)
+	{
 		movement = ctx.ReadValue<Vector2>();
 	}
 
-	void Awake () {
+	void Awake()
+	{
 		controller = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
 		cam = GetComponent<PlayerInput>().camera;
+		playerStats = GetComponent<PlayerStats>();
 	}
 
-	void Update () {
+	void Update()
+	{
 		ApplyGravity();
 		InputMagnitude();
   }
 
-	private void ApplyGravity () {
+	private void ApplyGravity()
+	{
 		isGrounded = controller.isGrounded;
 		
 		if (isGrounded && velocity.y < 0) {
@@ -48,7 +57,8 @@ public class PlayerMovement : MonoBehaviour {
 		controller.Move(velocity * Time.deltaTime);
 	}
 
-	void InputMagnitude () {
+	private void InputMagnitude ()
+	{
 		float speed = movement.sqrMagnitude;
 
 		if (speed > allowPlayerRotation) {
@@ -82,16 +92,18 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	*/
 
-  void PlayerMoveAndRotation () {
+  private void PlayerMoveAndRotation()
+	{
 		var localMovementDirection = new Vector3(movement.x, 0f, movement.y).normalized;
 
 		if (localMovementDirection.magnitude > 0.1f) {
 			transform.rotation = Quaternion.Slerp(transform.rotation, CalculateTargetRotation(localMovementDirection), rotationSpeed * Time.deltaTime);
-			controller.Move(transform.TransformDirection(localMovementDirection) * speed * Time.deltaTime);
+			controller.Move(transform.TransformDirection(localMovementDirection) * movementSpeed * Time.deltaTime);
 		}
 	}
 
-	Quaternion CalculateTargetRotation(Vector3 localMovementDirection) {
+	private Quaternion CalculateTargetRotation(Vector3 localMovementDirection)
+	{
 		var flatForward = cam.transform.forward;
 		flatForward.y = 0f;
 		flatForward.Normalize();

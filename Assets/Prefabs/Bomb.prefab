@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 3
   radius: 5
-  explosionPrefab: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
-  firePrefab: {fileID: 19800002, guid: ec8ca459c13886c48b2e9767acbe237b, type: 3}
+  explosionPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  firePrefab: {fileID: 198663536934198432, guid: bb98861c48ad2024ca93498c7dd93a6c, type: 3}
 --- !u!135 &1684495199469482763
 SphereCollider:
   m_ObjectHideFlags: 0

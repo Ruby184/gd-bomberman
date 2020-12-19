@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Planting Speed
   type: 4
   icon: {fileID: 21300000, guid: 08899c7b95056de458c07a171209ec23, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5182930192503591583, guid: d4a2969bd85259aad8aa47ba1790cc4e, type: 3}
   initialLevel: 1
   upgradesCount: 4
   initialValue: 1

@@ -12,14 +12,22 @@ public class PlayerStatsUI : MonoBehaviour
 
   private Dictionary<Ability, AbilityIcon> abilityIcons = new Dictionary<Ability, AbilityIcon>();
 
-  void Start()
+  void Awake()
   {
     foreach (var ability in playerStats.abilityRegistry.GetAbilities())
     {
       abilityIcons.Add(ability.ability, CreateAbilityIcon(ability.ability));
     }
+  }
 
+  void OnEnable()
+  {
     playerStats.onAbilityLevelChange.AddListener(OnAbilityChange);
+  }
+
+  void OnDisable()
+  {
+    playerStats.onAbilityLevelChange.RemoveListener(OnAbilityChange);
   }
 
   public void OnAbilityChange(PlayerStats.AbilityLevelChangeArg info)
@@ -32,8 +40,6 @@ public class PlayerStatsUI : MonoBehaviour
 
   private AbilityIcon CreateAbilityIcon(Ability ability)
   {
-    var abilityIcon = Instantiate(abilityIconPrefab, abilityIconsGrid);
-    abilityIcon.ability = ability;
-    return abilityIcon;
+    return Instantiate(abilityIconPrefab, abilityIconsGrid).Initialize(ability);
   }
 }

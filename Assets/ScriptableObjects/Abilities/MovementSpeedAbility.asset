@@ -15,8 +15,9 @@ MonoBehaviour:
   title: Move Speed
   type: 2
   icon: {fileID: 21300000, guid: 083237d4baf78d143b4251ca612f18dd, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 3855996290194884924, guid: 80509fe6a8a0b0658867f19948c18315, type: 3}
   initialLevel: 1
   upgradesCount: 4
-  initialValue: 0
-  maximumValue: 1
+  initialValue: 2
+  amountValue: 5
+  isAmountFinalValue: 1

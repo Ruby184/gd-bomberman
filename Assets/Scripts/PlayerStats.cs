@@ -39,6 +39,14 @@ public class PlayerStats : MonoBehaviour
     }
   }
 
+  void Start()
+  {
+    foreach (var entry in abilities)
+    {
+      onAbilityLevelChange?.Invoke(new AbilityLevelChangeArg(gameObject, abilityRegistry.GetAbility(entry.Key), entry.Value));
+    }
+  }
+
   public int GetAbilityLevel(Ability.AbilityType type)
   {
     if (abilities.TryGetValue(type, out int currentLevel))
@@ -54,6 +62,11 @@ public class PlayerStats : MonoBehaviour
   public float GetAbilityValue(Ability.AbilityType type)
   {
     return abilityRegistry.GetAbility(type).ValueAtLevel(GetAbilityLevel(type));
+  }
+
+  public int GetAbilityValueInt(Ability.AbilityType type)
+  {
+    return Mathf.FloorToInt(GetAbilityValue(type));
   }
 
   public bool IncreaseAbilityLevel(Ability.AbilityType type)
