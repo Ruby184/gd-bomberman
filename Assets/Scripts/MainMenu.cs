@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
       if (asyncOperation.progress >= 0.9f)
       {
-        Debug.Log("Press the space bar to continue");
+        // Debug.Log("Press the space bar to continue");
 
         // if (Input.GetKeyDown(KeyCode.Space)) {
           asyncOperation.allowSceneActivation = true;

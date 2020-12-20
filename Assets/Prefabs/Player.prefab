@@ -2301,6 +2301,7 @@ GameObject:
   - component: {fileID: 1973448946483035611}
   - component: {fileID: 7564808862038598677}
   - component: {fileID: 1834307925028707781}
+  - component: {fileID: 1638662168480386230}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2498,6 +2499,18 @@ MonoBehaviour:
       m_Calls: []
   abilityRegistry: {fileID: 11400000, guid: eea13cd308a3d5d948859c73a0689ff2, type: 2}
   abilityLevels: []
+--- !u!114 &1638662168480386230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046068474661803049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646e6aa859c47e35b96ef3ad3138d9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3061455868343263308
 GameObject:
   m_ObjectHideFlags: 0
