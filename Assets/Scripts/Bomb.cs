@@ -13,6 +13,8 @@ public class Bomb : MonoBehaviour
   private Grid3D grid;
   private Coroutine timerCoroutine;
 
+  private int playerColliderCount = 0;
+
   void Start()
   {
     grid = FindObjectOfType<Grid3D>();
@@ -34,7 +36,11 @@ public class Bomb : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-    if (other.CompareTag(firePrefab.tag))
+    if (other.CompareTag("Player"))
+    {
+      playerColliderCount++;
+    }
+    else if (other.CompareTag(firePrefab.tag))
     {
       StopCoroutine(timerCoroutine);
       Explode();
@@ -45,7 +51,10 @@ public class Bomb : MonoBehaviour
   {
     if (other.CompareTag("Player"))
     {
-      GetComponent<Collider>().isTrigger = false;
+      if (--playerColliderCount <= 0)
+      {
+        GetComponent<Collider>().isTrigger = false;
+      }
     }
   }
 
@@ -83,10 +92,11 @@ public class Bomb : MonoBehaviour
 
       if (cell != null)
       {
-        if (cell.TryGetComponent(out IDestroyable destroyable) && destroyable.Hit())
+        if (cell.TryGetComponent(out Destroyable destroyable) && destroyable.Hit())
         {
           Destroy(cell.gameObject);
           Instantiate(explosionPrefab, position, Quaternion.identity);
+          Instantiate(firePrefab, position, Quaternion.identity);
         }
 
         return;

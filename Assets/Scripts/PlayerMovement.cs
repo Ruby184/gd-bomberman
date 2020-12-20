@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// TODO: backwards movement is buggy, debug and fix it.
+// Script responsible for reacting to controls for movement.
+// Inspired by original script for Jammo Character.
+// https://assetstore.unity.com/packages/3d/characters/jammo-character-mix-and-jam-158456 
 [RequireComponent(typeof(CharacterController), typeof(Animator))]
 [RequireComponent(typeof(PlayerInput), typeof(PlayerStats))]
 public class PlayerMovement : MonoBehaviour
@@ -25,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public float movementSpeed => playerStats.GetAbilityValue(Ability.AbilityType.MovementSpeed);
 
-	public void onMovement(InputAction.CallbackContext ctx)
+	public void OnMovement(InputAction.CallbackContext ctx)
 	{
 		movement = ctx.ReadValue<Vector2>();
 	}

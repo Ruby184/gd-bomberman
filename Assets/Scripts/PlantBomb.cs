@@ -21,7 +21,7 @@ public class PlantBomb : MonoBehaviour
 
   public float plantingTime => playerStats.GetAbilityValue(Ability.AbilityType.BombPlantingSpeed);
 
-  public void onPlantBomb(InputAction.CallbackContext ctx)
+  public void OnPlantBomb(InputAction.CallbackContext ctx)
   {
     Debug.Log($"Performed: {ctx.performed}, started: {ctx.started}, canceled: {ctx.canceled}, duration: {ctx.duration}");
     Debug.Log($"Starttime: {ctx.startTime}, time: {ctx.time}, control: {ctx.control}");

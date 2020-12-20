@@ -78,7 +78,7 @@ MonoBehaviour:
   timer: 3
   radius: 5
   explosionPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  firePrefab: {fileID: 198663536934198432, guid: bb98861c48ad2024ca93498c7dd93a6c, type: 3}
+  firePrefab: {fileID: 7153383303681148077, guid: 78631efa7bda58f678f7c6bbbea0a138, type: 3}
 --- !u!135 &1684495199469482763
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873204770172031086}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
