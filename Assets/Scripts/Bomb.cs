@@ -7,17 +7,23 @@ using MapTileGridCreator.Core;
 public class Bomb : MonoBehaviour
 {
   public float timer = 3f;
-  public int radius = 5;
   public GameObject explosionPrefab;
   public ParticleSystem firePrefab;
   private Grid3D grid;
   private Coroutine timerCoroutine;
+
+  [HideInInspector]
+  public PlayerStats player;
+
+  private int radius = 5;
 
   private int playerColliderCount = 0;
 
   void Start()
   {
     grid = FindObjectOfType<Grid3D>();
+    radius = player.GetAbilityValueInt(Ability.AbilityType.BombExplosionRadius);
+    player.OnBombPlanted();
     timerCoroutine = StartCoroutine(StartTimer());
   }
 
@@ -78,6 +84,7 @@ public class Bomb : MonoBehaviour
       FireOnAxis(index, axis);
     }
 
+    player.OnBombExploded();
     Destroy(gameObject);
   }
 

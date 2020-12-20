@@ -25,6 +25,8 @@ public class PlayerStats : MonoBehaviour
 
   private Dictionary<Ability.AbilityType, int> abilities = new Dictionary<Ability.AbilityType, int>(Ability.TypesCount);
 
+  private int bombsPlanted = 0;
+
   void Awake()
   {
     for (int i = 0; i < abilityLevels.Count; i++)
@@ -45,6 +47,21 @@ public class PlayerStats : MonoBehaviour
     {
       onAbilityLevelChange?.Invoke(new AbilityLevelChangeArg(gameObject, abilityRegistry.GetAbility(entry.Key), entry.Value));
     }
+  }
+
+  public int GetPlantedBombsCount()
+  {
+    return bombsPlanted;
+  }
+
+  public void OnBombPlanted()
+  {
+    bombsPlanted++;
+  }
+
+  public void OnBombExploded()
+  {
+    bombsPlanted--;
   }
 
   public int GetAbilityLevel(Ability.AbilityType type)
