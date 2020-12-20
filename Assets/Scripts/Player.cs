@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     if (other.CompareTag("PoisonGas") && dieCoroutine != null)
     {
       StopCoroutine(dieCoroutine);
+      dieCoroutine = null;
     }
   }
 

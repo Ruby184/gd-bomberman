@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7362531290059820353}
   - component: {fileID: 2102673468328915586}
   - component: {fileID: 2590879953720861085}
+  - component: {fileID: -6871280861203774957}
   m_Layer: 0
   m_Name: WoodenBoxSquare
   m_TagString: Untagged
@@ -124,3 +125,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6871280861203774957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633747041404860631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d89afea79a5be7e4b655a57b0abfb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityRegistry: {fileID: 11400000, guid: eea13cd308a3d5d948859c73a0689ff2, type: 2}
+  pickablePrefab: {fileID: 8631992165703898442, guid: 3ac3af0756bb3654690122060f9cef08, type: 3}
+  probability: 0.5

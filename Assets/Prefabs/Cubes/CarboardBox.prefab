@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceafe52894df30f2f91086abcc9b8fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitsToDestroy: 1
+  colorEnd: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &6739801950740961582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityRegistry: {fileID: 11400000, guid: eea13cd308a3d5d948859c73a0689ff2, type: 2}
   pickablePrefab: {fileID: 8631992165703898442, guid: 3ac3af0756bb3654690122060f9cef08, type: 3}
+  probability: 0.2

@@ -8,6 +8,9 @@ public class PickableSpawner : MonoBehaviour
 
   public Pickable pickablePrefab;
 
+  [Range(0.0f, 1.0f)]
+  public float probability = 0.5f;
+
   private bool isShuttingDown = false;
 
   void OnApplicationQuit()
@@ -19,7 +22,12 @@ public class PickableSpawner : MonoBehaviour
   {
     if (!isShuttingDown)
     {
-      Spawn(abilityRegistry.GetRandomAbility());
+      float rnd = Random.Range(0.0f, 1.0f);
+
+      if (rnd <= probability)
+      {
+        Spawn(abilityRegistry.GetRandomAbility());
+      }
     }
   }
 
